@@ -7,12 +7,17 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=99999
+HISTFILESIZE=99999
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+shopt -s progcomp
+
+
+#!! sets vi mode for shell
+set -o vi
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -78,6 +83,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+### LC settings
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 alias ls='ls -F --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
@@ -92,6 +101,9 @@ alias m='more'
 alias j='jobs'
 alias rsyncssh='rsync --archive --compress --progress --rsh=ssh'
 alias xclip='xclip -selection clipboard'
+alias vimo='vim -O '
+alias dpaste="curl -F 'content=<-' https://dpaste.de/api/"
+
 
 # complex aliases instead terms
 alias timestamp="date +'%F-%H-%M'"
@@ -99,6 +111,10 @@ alias timestamp="date +'%F-%H-%M'"
 # common misspellings
 alias mroe=more
 alias pdw=pwd
+
+shopt -s autocd
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -115,7 +131,6 @@ if ! shopt -oq posix; then
 fi
 export AWS_PROFILE=default
 . /usr/local/bin/aws_bash_completer
-source <(awless completion bash)
 #source <(awless completion bash)
 
 #kubectl
@@ -124,11 +139,7 @@ alias k=kubectl
 complete -F __start_kubectl k
 #eval $(minikube docker-env)
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export LC_ALL=en_US.UTF-8
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/petr/.sdkman"
-[[ -s "/home/petr/.sdkman/bin/sdkman-init.sh" ]] && source "/home/petr/.sdkman/bin/sdkman-init.sh"
 export GOARCH="amd64"
 export GOBIN=""
 export GOCACHE="/home/petr/.cache/go-build"
