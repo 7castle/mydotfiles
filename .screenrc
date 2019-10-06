@@ -12,6 +12,9 @@ nonblock on
 escape ``
 defescape ``
 
+#rename screen window with `r
+bind r title 
+
 hardstatus alwayslastline
 hardstatus string  '%{= dr}[%{= dr}%H%{= dr}]%{= dw} %-Lw%{= kg}|%n %t|%{-}%+Lw%0> %=[%{b}%l%{w}]%{w}[%{b} %d/%m/%y %C %A %{w}]%{w}'
 
