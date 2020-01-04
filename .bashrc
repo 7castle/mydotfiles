@@ -134,36 +134,11 @@ export AWS_PROFILE=default
 #source <(awless completion bash)
 
 #kubectl
-source <(kubectl completion bash)
-alias k=kubectl
-complete -F __start_kubectl k
+#source <(kubectl completion bash)
+#alias k=kubectl
+#complete -F __start_kubectl k
 #eval $(minikube docker-env)
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+#export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-export GOARCH="amd64"
-export GOBIN=""
-export GOCACHE="/home/petr/.cache/go-build"
-export GOEXE=""
-export GOFLAGS=""
-export GOHOSTARCH="amd64"
-export GOHOSTOS="linux"
-export GOOS="linux"
-export GOPATH="/home/petr/go"
-export GOPROXY=""
-export GORACE=""
-export GOROOT="/home/petr/.go"
-export GOTMPDIR=""
-export GOTOOLDIR="/home/petr/.go/pkg/tool/linux_amd64"
-export GCCGO="gccgo"
-export CC="gcc"
-export CXX="g++"
-export CGO_ENABLED="1"
-export GOMOD=""
-export CGO_CFLAGS="-g -O2"
-export CGO_CPPFLAGS=""
-export CGO_CXXFLAGS="-g -O2"
-export CGO_FFLAGS="-g -O2"
-export CGO_LDFLAGS="-g -O2"
-export PKG_CONFIG="pkg-config"
-export GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build265397982=/tmp/go-build -gno-record-gcc-switches"
 alias config='/usr/bin/git --git-dir=/home/petr/.cfg/ --work-tree=/home/petr'
+alias rescp=’rsync –size-only –partial –progress –stats –inplace’
