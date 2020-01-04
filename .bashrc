@@ -69,11 +69,11 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
-#if [ -f ~/.dir_colors/dircolors ]
-#    then eval `dircolors ~/.dir_colors/dircolors`
-#fi
+if [ -f ~/.dir_colors/dircolors ]
+    then eval `dircolors ~/.dir_colors/dircolors`
+fi
 
-eval `dircolors /home/petr/projects/mate-terminal-colors-solarized/dircolors`
+# eval `dircolors /home/petr/projects/mate-terminal-colors-solarized/dircolors`
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
