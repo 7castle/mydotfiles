@@ -84,8 +84,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 ### LC settings
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
 
 alias ls='ls -F --color=auto'
 alias dir='dir --color=auto'
@@ -103,6 +103,8 @@ alias rsyncssh='rsync --archive --compress --progress --rsh=ssh'
 alias xclip='xclip -selection clipboard'
 alias vimo='vim -O '
 alias dpaste="curl -F 'content=<-' https://dpaste.de/api/"
+alias config='/usr/bin/git --git-dir=/home/petr/.cfg/ --work-tree=/home/petr'
+alias rescp='rsync --size-only --partial --progress --stats --inplace'
 
 
 # complex aliases instead terms
@@ -139,6 +141,3 @@ export AWS_PROFILE=default
 #complete -F __start_kubectl k
 #eval $(minikube docker-env)
 #export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-alias config='/usr/bin/git --git-dir=/home/petr/.cfg/ --work-tree=/home/petr'
-alias rescp=’rsync –size-only –partial –progress –stats –inplace’
