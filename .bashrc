@@ -69,11 +69,11 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
-#if [ -f ~/.dir_colors/dircolors ]
-#    then eval `dircolors ~/.dir_colors/dircolors`
-#fi
+if [ -f ~/.dir_colors/dircolors ]
+    then eval `dircolors ~/.dir_colors/dircolors`
+fi
 
-eval `dircolors /home/petr/projects/mate-terminal-colors-solarized/dircolors`
+# eval `dircolors /home/petr/projects/mate-terminal-colors-solarized/dircolors`
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -84,8 +84,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 ### LC settings
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
 
 alias ls='ls -F --color=auto'
 alias dir='dir --color=auto'
@@ -103,6 +103,8 @@ alias rsyncssh='rsync --archive --compress --progress --rsh=ssh'
 alias xclip='xclip -selection clipboard'
 alias vimo='vim -O '
 alias dpaste="curl -F 'content=<-' https://dpaste.de/api/"
+alias config='/usr/bin/git --git-dir=/home/petr/.cfg/ --work-tree=/home/petr'
+alias rescp='rsync --size-only --partial --progress --stats --inplace'
 
 
 # complex aliases instead terms
@@ -134,36 +136,8 @@ export AWS_PROFILE=default
 #source <(awless completion bash)
 
 #kubectl
-source <(kubectl completion bash)
-alias k=kubectl
-complete -F __start_kubectl k
+#source <(kubectl completion bash)
+#alias k=kubectl
+#complete -F __start_kubectl k
 #eval $(minikube docker-env)
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-export GOARCH="amd64"
-export GOBIN=""
-export GOCACHE="/home/petr/.cache/go-build"
-export GOEXE=""
-export GOFLAGS=""
-export GOHOSTARCH="amd64"
-export GOHOSTOS="linux"
-export GOOS="linux"
-export GOPATH="/home/petr/go"
-export GOPROXY=""
-export GORACE=""
-export GOROOT="/home/petr/.go"
-export GOTMPDIR=""
-export GOTOOLDIR="/home/petr/.go/pkg/tool/linux_amd64"
-export GCCGO="gccgo"
-export CC="gcc"
-export CXX="g++"
-export CGO_ENABLED="1"
-export GOMOD=""
-export CGO_CFLAGS="-g -O2"
-export CGO_CPPFLAGS=""
-export CGO_CXXFLAGS="-g -O2"
-export CGO_FFLAGS="-g -O2"
-export CGO_LDFLAGS="-g -O2"
-export PKG_CONFIG="pkg-config"
-export GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build265397982=/tmp/go-build -gno-record-gcc-switches"
-alias config='/usr/bin/git --git-dir=/home/petr/.cfg/ --work-tree=/home/petr'
+#export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
