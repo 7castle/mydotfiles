@@ -15,6 +15,7 @@ HISTFILESIZE=99999
 shopt -s checkwinsize
 shopt -s progcomp
 
+export TERM=xterm
 
 #!! sets vi mode for shell
 set -o vi
@@ -32,9 +33,9 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-#case "$TERM" in
-#    xterm-color) color_prompt=yes;;
-#esac
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -73,7 +74,6 @@ if [ -f ~/.dir_colors/dircolors ]
     then eval `dircolors ~/.dir_colors/dircolors`
 fi
 
-# eval `dircolors /home/petr/projects/mate-terminal-colors-solarized/dircolors`
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -84,8 +84,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 ### LC settings
-#export LC_ALL=en_US.UTF-8
-#export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 alias ls='ls -F --color=auto'
 alias dir='dir --color=auto'
@@ -132,12 +132,11 @@ if ! shopt -oq posix; then
   fi
 fi
 export AWS_PROFILE=default
-. /usr/local/bin/aws_bash_completer
 #source <(awless completion bash)
 
 #kubectl
-#source <(kubectl completion bash)
-#alias k=kubectl
-#complete -F __start_kubectl k
+source <(kubectl completion bash)
+alias k=kubectl
+complete -F __start_kubectl k
 #eval $(minikube docker-env)
-#export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
